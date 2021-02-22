@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>scissors-Paper-Scissors</title>
+  </head>
+  <body>
+    <div class="score animate__animated animate__bounceInDown">
+      <div class="title">
+        <img src="./images/logo.svg" alt="" />
+      </div>
+      <div class="points">
+        <p>SCORE</p>
+        <p class="score-value">0</p>
+      </div>
+    </div>
+    <div class="game  animate__animated animate__bounceIn">
+      <div class="container">
+        <div class="top">
+          <button  class="button-play1">
+            <div class="img first circle" >
+              <div class="circle">
+                <img src="./images/icon-scissors.svg" alt="" />
+              </div>
+            </div>
+          </button>
+          <button class="button-play2">
+            <div class="img second circle" >
+              <div class="circle">
+                <img src="./images/icon-paper.svg" alt="" />
+              </div>
+            </div>
+          </button>
+        </div>
+        <div class="bottom">
+          <button  class="button-play3">
+            <div class="img thrid circle" >
+              <div class="circle">
+              <img src="./images/icon-rock.svg" alt="" />
+            </div>
+        </button>
+       </div>
+      </div>
+      </div>
+    </div>
+    <div class="match hidden">
+      <div class="container-match">
+        <div class="container-item">
+          <div id="selected1" class="img circle animate__animated">
+            <div class="circle">
+              <img id="img1" src="./images/icon-scissors.svg" alt="" />
+            </div>
+          </div>
+          <p>YOU PICKED</p>
+        </div>
+        <div class="container-item">
+          <div id="selected2" class="img circle animate__animated">
+            <div class="circle">
+              <img id="img2" src="./images/icon-scissors.svg" alt="" />
+            </div>
+          </div>
+          <p>THE HOUSE PICKED</p>
+        </div>
+      </div>
+    </div>
+    <div class="rules animate__animated animate__bounceInUp">
+      <button id="rules">RULES</button>
+    </div>
+    <div class="modal animate__animated animate__bounceInRight">
+      <div class="container-button">
+        <button class="close"></button>
+      </div>
+      <p>RULES</p>
+      <img src="./images/image-rules.svg" alt="" />
+    </div>
+    <div class="modal-result hidden animate__animated animate__bounceInRight">
+      <div class="container-button">
+        <button class="closeR"></button>
+      </div>
+      <h1>Your Score </h1>
+      <p class="final-points"></p>
+    </div>
+    <div class="modal draw animate__animated"> DRAW</div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

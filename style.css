@@ -1,0 +1,402 @@
+:root {
+  --bg: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --border: hsl(217, 16%, 45%);
+  --gray: rgb(196, 196, 196);
+  --scoreColor: hsl(229, 64%, 46%);
+  --colorText: hsl(229, 25%, 31%);
+  --scissorsGradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paperGradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rockGradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+body {
+  background: var(--bg);
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  outline: none;
+  border-radius: 10px;
+  font-size: 1em;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 450ms all;
+}
+
+.score {
+  margin: 2em;
+  border-radius: 7px;
+  border: 3px solid var(--border);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title img {
+  width: 60%;
+}
+
+.points {
+  padding: 0.8em 1.2em;
+  border-radius: 5px;
+  background-color: white;
+  text-align: center;
+}
+
+.points p:first-child {
+  color: var(--scoreColor);
+  font-size: 0.8em;
+  letter-spacing: 2px;
+}
+
+.points p:nth-child(2) {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--colorText);
+}
+@media (min-width: 768px) {
+  .score {
+    margin: 2em auto;
+    width: 70%;
+  }
+}
+@media (min-width: 1024px) {
+  .score {
+    margin: 2em auto;
+    width: 50%;
+  }
+}
+@media (min-width: 1440px) {
+  .score {
+    margin: 2em auto;
+    width: 30%;
+  }
+}
+
+/* -----------------GAME--------------------- */
+
+.game {
+  margin: 2em;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  background-image: url("./images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-size: 30vh;
+  background-position: center;
+}
+.circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .img {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+.container .img div {
+  width: 70px;
+  height: 70px;
+  margin: 0;
+  background-color: white;
+}
+.container div img {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+}
+.top {
+  margin: 1em;
+}
+.top button,
+.bottom button {
+  margin: 0 1em;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.first {
+  background: var(--scissorsGradient);
+}
+.second {
+  background: var(--paperGradient);
+}
+.thrid {
+  background: var(--rockGradient);
+}
+
+@media (min-width: 1024px) {
+  .game {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .container {
+    height: 40vh;
+    background-size: 40vh;
+  }
+  .container .img {
+    margin: 0 2em;
+    width: 120px;
+    height: 120px;
+  }
+  .container .img div {
+    width: 90px;
+    height: 90px;
+  }
+  .top {
+    margin-bottom: 3em;
+  }
+}
+/* -----------------RULES----------------  */
+
+.rules {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+.rules button {
+  border: 2px solid var(--gray);
+  color: var(--gray);
+  background: transparent;
+  padding: 0.7em 2.3em;
+  margin-bottom: 2em;
+}
+.rules button:hover {
+  color: var(--scoreColor);
+}
+
+@media (min-width: 1024px) {
+  .rules {
+    justify-content: flex-end;
+    margin-right: 2em;
+  }
+}
+
+/* -------------MODAL-----------------  */
+
+.modal {
+  padding: 2em;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: 2em;
+  height: 40vh;
+  background-color: white;
+  transition: 200ms all;
+  display: none;
+}
+.modal button {
+  height: 20px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 20px;
+  background-image: url("./images/icon-close.svg");
+  background-position: center;
+  background-size: 20px;
+}
+
+.modal p {
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--colorText);
+  font-weight: 700;
+}
+
+.modal img {
+  width: 200px;
+  margin: 3em 0;
+}
+
+.show {
+  display: block;
+}
+
+.container-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 50%;
+    margin: auto;
+    top: 160px;
+    height: 60vh;
+  }
+  .modal img {
+    width: 300px;
+  }
+}
+@media (min-width: 1440px) {
+  .modal {
+    width: 30%;
+    margin: auto;
+    top: 160px;
+    height: 60vh;
+  }
+}
+
+/* --------------MATCH--------------------------  */
+
+.container-match {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.match .img {
+  height: 120px;
+  width: 120px;
+  margin: 0.4em;
+}
+.match .img div {
+  height: 90px;
+  width: 90px;
+  background: white;
+}
+.match .img img {
+  height: 40px;
+  width: 40px;
+  background: white;
+}
+
+.match .container-item {
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+.match .container-item p {
+  margin-top: 1em;
+}
+@media (min-width: 1024px) {
+  .match .img {
+    height: 140px;
+    width: 140px;
+    margin: 0.4em;
+  }
+  .match .img div {
+    height: 110px;
+    width: 110px;
+    background: white;
+  }
+  .match .img img {
+    height: 60px;
+    width: 60px;
+    background: white;
+  }
+}
+/* --------------------MODAL-RESULT--------------------- */
+
+.modal-result {
+  padding: 2em;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 160px;
+  left: 0;
+  right: 0;
+  margin: 2em;
+  height: 40vh;
+  background-color: white;
+  transition: 200ms all;
+}
+.modal-result h1 {
+  margin-bottom: 1.5em;
+  margin-top: 1em;
+  color: var(--colorText);
+}
+.modal-result button {
+  height: 20px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 20px;
+  background-image: url("./images/icon-close.svg");
+  background-position: center;
+  background-size: 20px;
+}
+
+.modal-result p {
+  text-align: center;
+  font-size: 3em;
+  color: var(--colorText);
+  font-weight: 700;
+}
+
+.container-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .modal-result {
+    width: 50%;
+    margin: auto;
+    top: 200px;
+    height: 40vh;
+  }
+}
+@media (min-width: 1024px) {
+  .modal-result {
+    width: 40%;
+    margin: auto;
+    top: 200px;
+    height: 45vh;
+  }
+}
+@media (min-width: 1440px) {
+  .modal-result {
+    width: 30%;
+    margin: auto;
+    top: 200px;
+    height: 45vh;
+  }
+}
+
+/* ------------------MODAL DRAW------------------- */
+
+.draw {
+  color: var(--colorText);
+  height: 5vh;
+  top: 200px;
+  letter-spacing: 2px;
+}
+
+.draw {
+  font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  .draw {
+    width: 50%;
+    margin: auto;
+    top: 250px;
+  }
+}
