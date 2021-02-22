@@ -1,4 +1,6 @@
 Game of ROCK - PAPER - SCISSORS 
+
+
 Technologies used:
   -HTML
   -CSS
